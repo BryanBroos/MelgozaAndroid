@@ -2,21 +2,13 @@ package com.bryanbroos.melgoza.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.view.WindowCompat
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.bryanbroos.melgoza.R
 import com.bryanbroos.melgoza.databinding.ActivityLoginBinding
-import kotlin.math.log
 
 class login : AppCompatActivity() {
 
@@ -35,7 +27,7 @@ class login : AppCompatActivity() {
             val name = etUsuario.text.toString()
 
             if(name.isNotEmpty()){
-                val intent = Intent(this, com.bryanbroos.melgoza.ui.menu.MenuPrincipal::class.java)
+                val intent = Intent(this, com.bryanbroos.melgoza.ui.menu.MainMenu::class.java)
                 intent.putExtra("EXTRA_NAME", name)
                 startActivity(intent)
             }

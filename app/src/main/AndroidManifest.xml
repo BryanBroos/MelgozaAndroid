@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,22 @@
         android:theme="@style/Theme.Melgoza"
         tools:targetApi="31">
         <activity
-            android:name=".ui.menu.MenuPrincipal"
+            android:name=".ui.menu.userprofile.EditUser"
+            android:exported="false" />
+        <activity
+            android:name=".ui.menu.Product"
+            android:exported="false" />
+        <activity
+            android:name=".ui.menu.Shopping"
+            android:exported="false" />
+        <activity
+            android:name=".ui.menu.userprofile.Wallet"
+            android:exported="false" />
+        <activity
+            android:name=".ui.menu.userprofile.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".ui.menu.MainMenu"
             android:exported="false" />
         <activity
             android:name=".ui.signup.signup"

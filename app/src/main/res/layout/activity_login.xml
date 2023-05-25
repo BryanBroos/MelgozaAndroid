@@ -5,6 +5,9 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="15dp"
     tools:context=".ui.login.login">
 
 
@@ -21,6 +24,7 @@
         android:text="Bienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         android:textSize="30sp"
         android:textAlignment="center"
