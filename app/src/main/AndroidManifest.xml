@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,30 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Melgoza"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.menu.userprofile.EditUser"
-            android:exported="false" />
-        <activity
-            android:name=".ui.menu.Product"
-            android:exported="false" />
-        <activity
-            android:name=".ui.menu.Shopping"
-            android:exported="false" />
-        <activity
-            android:name=".ui.menu.userprofile.Wallet"
-            android:exported="false" />
-        <activity
-            android:name=".ui.menu.userprofile.Profile"
-            android:exported="false" />
-        <activity
-            android:name=".ui.menu.MainMenu"
-            android:exported="false" />
-        <activity
-            android:name=".ui.signup.signup"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.login"
+            android:name=".forever.ui.login"
             android:exported="true"
             android:label="Melgoza"
             android:theme="@style/Theme.Melgoza">
@@ -46,6 +27,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".forever.ui.EditUser"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.Product"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.Shopping"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.Wallet"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.MainMenu"
+            android:exported="false" />
+        <activity
+            android:name=".forever.ui.Signup"
+            android:exported="false" />
     </application>
 
 </manifest>

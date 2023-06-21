@@ -1,4 +1,4 @@
-package com.bryanbroos.melgoza.ui.menu.userprofile
+package com.bryanbroos.melgoza.forever.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

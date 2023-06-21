@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="30dp"
     android:paddingVertical="15dp"
-    tools:context=".ui.menu.userprofile.Profile">
+    tools:context=".forever.ui.Profile">
 
     <TextView
         android:id="@+id/txtMyAccount"
@@ -75,6 +75,20 @@
         app:layout_constraintTop_toBottomOf="@+id/viewEditUser" />
 
     <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewEditUser" />
+
+    <TextView
         android:id="@+id/txtRealName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,11 +104,25 @@
 
 
     <TextView
-        android:id="@+id/txtEmailAccount"
+        android:id="@+id/txtReal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Email:"
+        android:text=""
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNameAccount" />
+
+    <TextView
+        android:id="@+id/txtMaternal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Apellido Materno:"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="20dp"
@@ -104,18 +132,46 @@
         app:layout_constraintTop_toBottomOf="@+id/txtRealName" />
 
     <TextView
-        android:id="@+id/txtAddress"
+        android:id="@+id/txtMaternalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Direccion:"
+        android:text=""
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRealName" />
+
+    <TextView
+        android:id="@+id/txtPaternal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Apellido paterno:"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMaternal" />
+
+    <TextView
+        android:id="@+id/txtPaternalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMaternal" />
 
     <ImageView
         android:id="@+id/UserPhoto"
@@ -138,7 +194,7 @@
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddress">
+        app:layout_constraintTop_toBottomOf="@+id/txtPaternal">
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"

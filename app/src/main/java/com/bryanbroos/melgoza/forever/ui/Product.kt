@@ -1,12 +1,8 @@
-package com.bryanbroos.melgoza.ui.menu
+package com.bryanbroos.melgoza.forever.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.cardview.widget.CardView
+import androidx.appcompat.app.AppCompatActivity
 import com.bryanbroos.melgoza.R
-
-private lateinit var viewEditWallet: CardView
-private lateinit var viewPay: CardView
 
 class Product : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

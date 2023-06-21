@@ -1,6 +1,4 @@
-package com.bryanbroos.melgoza.ui.api
-
-import retrofit2.Retrofit
+package com.bryanbroos.melgoza.forever.api
 
 object Servivebuilder {
 
