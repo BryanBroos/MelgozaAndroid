@@ -13,7 +13,7 @@ data class Product(
 
     val stock: Int,
 
-    val size: Float,
+    val size: String,
 
     val target: Int,
 

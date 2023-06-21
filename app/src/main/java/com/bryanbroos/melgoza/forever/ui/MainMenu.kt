@@ -5,18 +5,25 @@ import android.media.session.MediaSession.Token
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.recyclerview.widget.RecyclerView
 import com.bryanbroos.melgoza.R
 import com.bryanbroos.melgoza.databinding.ActivityLoginBinding
 import com.bryanbroos.melgoza.forever.api.ApiLogin
+import com.bryanbroos.melgoza.forever.api.ApiProduct
 import com.bryanbroos.melgoza.forever.api.InfoUsuario
+import com.bryanbroos.melgoza.forever.model.Product
 import com.bryanbroos.melgoza.forever.ui.Shopping
 import com.bryanbroos.melgoza.forever.ui.util.PreferenceHelper
 import com.bryanbroos.melgoza.forever.ui.util.PreferenceHelper.set
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import java.lang.StringBuilder
 
 class MainMenu : AppCompatActivity() {
 
@@ -25,10 +32,16 @@ class MainMenu : AppCompatActivity() {
     private val apiLogin: ApiLogin by lazy {
         ApiLogin.create()
     }
+    private val apiProduct: ApiProduct by lazy {
+        ApiProduct.create()
+    }
+
 
     private lateinit var viewUser:CardView
     private lateinit var viewShopping:CardView
     private lateinit var txtName:TextView
+    private lateinit var productsList: ArrayList<Product>
+    private lateinit var productsAdapter: ProductsAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +49,9 @@ class MainMenu : AppCompatActivity() {
         setContentView(R.layout.activity_main_menu)
         val btnLogout = findViewById<AppCompatButton>(R.id.btnLogout)
         initComponents()
+        showProducs()
         initListeners()
+
 
 
         btnLogout.setOnClickListener{
@@ -49,10 +64,29 @@ class MainMenu : AppCompatActivity() {
 
 
 
+
     private fun initComponents() {
         viewUser = findViewById(R.id.viewUser)
+        val recyclerView = findViewById<RecyclerView>(R.id.Recyproducts)
         viewShopping = findViewById(R.id.viewShopping)
         txtName = findViewById(R.id.txtName)
+        productsList = ArrayList()
+        productsAdapter = ProductsAdapter(productsList)
+        recyclerView.adapter = productsAdapter
+
+        productsAdapter.setOnClickListener(object: ProductsAdapter.OnClickListener {
+            override fun onClick(index: Int, product: Product) {
+                val intent = Intent(applicationContext, com.bryanbroos.melgoza.forever.ui.login::class.java)
+                intent.putExtra("productId", product.idProduct);
+
+                intent.getIntExtra("productId", 0);
+                // startIntent
+                // Enviar el producto como serializado.
+                // o, namás enviar el id.
+                Toast.makeText(applicationContext, product.idProduct, Toast.LENGTH_SHORT).show()
+            }
+        })
+
         val preferences = PreferenceHelper.defaultPrefs(this)
         val call = apiLogin.getCustomer(token = preferences.getString("token","")?:"")
         call.enqueue(object : retrofit2.Callback<InfoUsuario>{
@@ -67,6 +101,7 @@ class MainMenu : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+
 
     }
 
@@ -88,6 +123,37 @@ class MainMenu : AppCompatActivity() {
 
         val preferences = PreferenceHelper.defaultPrefs(this)
         preferences["token"] = null
+
+    }
+
+    private fun showProducs(){
+        val preferences = PreferenceHelper.defaultPrefs(this)
+        val call = apiProduct.getAllProducts(token = preferences.getString("token","")?:"")
+        call.enqueue(object : Callback<List<Product>> {
+            override fun onResponse(
+                call: Call<List<Product>>,
+                response: Response<List<Product>>
+            ) {
+                if(response.isSuccessful){
+                    val productList = response.body()
+                    if(productList != null){
+                        productsList.clear()
+                        productsList.addAll(productList)
+                        productsAdapter.notifyDataSetChanged()
+                    }
+
+                    Toast.makeText(applicationContext, "SE RECUPERO", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(applicationContext, "No se recupero nada", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                Toast.makeText(applicationContext, "Error en el servidor", Toast.LENGTH_SHORT).show()
+            }
+        })
 
     }
 }
