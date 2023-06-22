@@ -1,7 +1,7 @@
 package com.bryanbroos.melgoza.forever.model
 
 data class Product(
-    val idProduct: Int,
+    val id: Int,
 
     val name: String,
 

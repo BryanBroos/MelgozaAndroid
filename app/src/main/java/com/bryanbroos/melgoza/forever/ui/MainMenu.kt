@@ -76,14 +76,9 @@ class MainMenu : AppCompatActivity() {
 
         productsAdapter.setOnClickListener(object: ProductsAdapter.OnClickListener {
             override fun onClick(index: Int, product: Product) {
-                val intent = Intent(applicationContext, com.bryanbroos.melgoza.forever.ui.login::class.java)
-                intent.putExtra("productId", product.idProduct);
-
-                intent.getIntExtra("productId", 0);
-                // startIntent
-                // Enviar el producto como serializado.
-                // o, namás enviar el id.
-                Toast.makeText(applicationContext, product.idProduct, Toast.LENGTH_SHORT).show()
+                val intent = Intent(applicationContext, com.bryanbroos.melgoza.forever.ui.Product::class.java)
+                intent.putExtra("productId", product.id);
+                startActivity(intent)
             }
         })
 

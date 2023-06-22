@@ -11,10 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 
 interface ApiProduct {
-    @GET(value = "products")
-    fun getProduct(@Body productInfo: productInfo):
+    @GET(value = "products/{id}")
+    fun getProduct(@Path("id") id: Int, @Header("Authorization") token: String):
             Call<Product>
 
     @GET(value = "products")

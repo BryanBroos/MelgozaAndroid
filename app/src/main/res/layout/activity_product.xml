@@ -5,5 +5,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".forever.ui.Product">
+    <TextView
+        android:id="@+id/product_name_label"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@id/txtProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_name_label"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/product_price_label"
+        app:layout_constraintTop_toBottomOf="@id/txtProductName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_price_label"
+        app:layout_constraintTop_toBottomOf="@id/txtProductName"
+        android:text="" />
+    <TextView
+        android:id="@+id/product_category_label"
+        app:layout_constraintTop_toBottomOf="@id/product_price_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_category_label"
+        app:layout_constraintTop_toBottomOf="@id/txtPrice"
+        android:text="aaa" />
+    <TextView
+        android:id="@+id/product_description_label"
+        app:layout_constraintTop_toBottomOf="@id/product_category_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_description_label"
+        app:layout_constraintTop_toTopOf="@id/product_description_label"
+        android:layout_marginStart="10dp"
+        android:text="aaa\nasda\nasdasd" />
+    <TextView
+        android:id="@+id/product_stock_label"
+        app:layout_constraintTop_toBottomOf="@id/txtDescripcion"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Stock: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_stock_label"
+        app:layout_constraintTop_toTopOf="@id/product_stock_label"
+        android:layout_marginStart="10dp"
+        android:text="aaa" />
+
+    <TextView
+        android:id="@+id/product_size_label"
+        app:layout_constraintTop_toBottomOf="@id/product_stock_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size: "
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/product_stock_label"
+        app:layout_constraintTop_toBottomOf="@id/txtStock"
+        android:text="aaa" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
