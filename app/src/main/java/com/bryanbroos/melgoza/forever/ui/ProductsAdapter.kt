@@ -25,6 +25,7 @@ class ProductsAdapter(val productlist:ArrayList<Product>): RecyclerView.Adapter<
         holder.bind(product)
     }
 
+
     override fun getItemCount(): Int {
         return productlist.size
     }

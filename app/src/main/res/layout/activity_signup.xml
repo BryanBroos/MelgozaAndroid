@@ -110,12 +110,12 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="367dp"
+        android:layout_height="213dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/acosador"/>
+        app:srcCompat="@drawable/whatsapp_image_2023_06_22_at_12_48_41_pm" />
 
 
 

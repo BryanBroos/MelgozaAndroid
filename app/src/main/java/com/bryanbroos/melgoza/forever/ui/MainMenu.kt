@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.session.MediaSession.Token
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -23,7 +24,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.http.Query
 import java.lang.StringBuilder
+import java.util.Locale
 
 class MainMenu : AppCompatActivity() {
 
@@ -44,6 +47,7 @@ class MainMenu : AppCompatActivity() {
     private lateinit var productsAdapter: ProductsAdapter
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -51,18 +55,12 @@ class MainMenu : AppCompatActivity() {
         initComponents()
         showProducs()
         initListeners()
-
-
-
         btnLogout.setOnClickListener{
             Deletesessionpreference()
             val intent = Intent(this, com.bryanbroos.melgoza.forever.ui.login::class.java)
-
             startActivity(intent)
         }
     }
-
-
 
 
     private fun initComponents() {
@@ -73,7 +71,6 @@ class MainMenu : AppCompatActivity() {
         productsList = ArrayList()
         productsAdapter = ProductsAdapter(productsList)
         recyclerView.adapter = productsAdapter
-
         productsAdapter.setOnClickListener(object: ProductsAdapter.OnClickListener {
             override fun onClick(index: Int, product: Product) {
                 val intent = Intent(applicationContext, com.bryanbroos.melgoza.forever.ui.Product::class.java)
@@ -93,7 +90,7 @@ class MainMenu : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<InfoUsuario>, t: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(applicationContext, "No se pudo recuperar los productos", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -137,9 +134,8 @@ class MainMenu : AppCompatActivity() {
                         productsAdapter.notifyDataSetChanged()
                     }
 
-                    Toast.makeText(applicationContext, "SE RECUPERO", Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(applicationContext, "No se recupero nada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Error al recuperar los productos", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -151,4 +147,6 @@ class MainMenu : AppCompatActivity() {
         })
 
     }
+
+
 }

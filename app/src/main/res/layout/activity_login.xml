@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bryan_icon_20230218145233"/>
+        app:srcCompat="@drawable/whatsapp_image_2023_06_22_at_12_48_41_pm" />
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/titulo"
         android:text="Bienvenido"

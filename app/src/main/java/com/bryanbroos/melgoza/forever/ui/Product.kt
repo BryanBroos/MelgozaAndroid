@@ -1,8 +1,11 @@
 package com.bryanbroos.melgoza.forever.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.navigation.ui.AppBarConfiguration
 import com.bryanbroos.melgoza.R
 import com.bryanbroos.melgoza.databinding.ActivityLoginBinding
@@ -32,11 +35,13 @@ class Product : AppCompatActivity() {
     private lateinit var txtDescripcion:TextView
     private lateinit var txtStock: TextView
     private lateinit var txtSize: TextView
+    private lateinit var Shopping: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
         initComponents()
+        initListeners()
 
 
     }
@@ -45,6 +50,7 @@ class Product : AppCompatActivity() {
         txtProductName = findViewById(R.id.txtProductName)
         txtPrice = findViewById(R.id.txtPrice)
         txtCategory = findViewById(R.id.txtCategory)
+        Shopping = findViewById(R.id.Shopping)
         txtDescripcion = findViewById(R.id.txtDescripcion)
         txtStock = findViewById(R.id.txtStock)
         txtSize = findViewById(R.id.txtSize)
@@ -65,10 +71,17 @@ class Product : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Product?>, t: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(applicationContext, "No se pudo recuperar los datos del producto", Toast.LENGTH_SHORT).show()
             }
         })
 
+
+    }
+
+    private fun initListeners() {
+        Shopping.setOnClickListener {
+            Toast.makeText(applicationContext, "Se agrego el producto al carrito", Toast.LENGTH_SHORT).show()
+        }
 
     }
 

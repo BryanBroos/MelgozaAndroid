@@ -3,6 +3,7 @@ package com.bryanbroos.melgoza.forever.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 import com.bryanbroos.melgoza.R
 import android.widget.Toast
@@ -28,8 +29,16 @@ class Signup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+        val btnSignUp = findViewById<AppCompatButton>(R.id.btnSignUp)
+        btnSignUp.setOnClickListener{
+            val intent = Intent(this, com.bryanbroos.melgoza.forever.ui.login::class.java)
+            Toast.makeText(applicationContext, "Usuario Registrado", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        }
 
 
 
     }
+
+
 }
