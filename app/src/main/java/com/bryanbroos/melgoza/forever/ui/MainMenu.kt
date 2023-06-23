@@ -66,8 +66,8 @@ class MainMenu : AppCompatActivity() {
     private fun initComponents() {
         viewUser = findViewById(R.id.viewUser)
         val recyclerView = findViewById<RecyclerView>(R.id.Recyproducts)
-        viewShopping = findViewById(R.id.viewShopping)
         txtName = findViewById(R.id.txtName)
+        viewShopping = findViewById(R.id.viewShopping)
         productsList = ArrayList()
         productsAdapter = ProductsAdapter(productsList)
         recyclerView.adapter = productsAdapter

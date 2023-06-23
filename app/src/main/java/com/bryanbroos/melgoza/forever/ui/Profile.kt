@@ -25,7 +25,6 @@ class Profile : AppCompatActivity() {
         ApiLogin.create()
     }
     private lateinit var viewEditWallet:CardView
-    private lateinit var viewEditUser:CardView
     private lateinit var txtName:TextView
     private lateinit var txtReal:TextView
     private lateinit var txtMaternalName:TextView
@@ -39,7 +38,6 @@ class Profile : AppCompatActivity() {
     }
     private fun initComponents() {
         viewEditWallet = findViewById(R.id.viewEditWallet)
-        viewEditUser = findViewById(R.id.viewEditUser)
         txtName = findViewById(R.id.txtName)
         txtReal = findViewById(R.id.txtReal)
         txtMaternalName = findViewById(R.id.txtMaternalName)
@@ -71,15 +69,6 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
 
         }
-
-        viewEditUser.setOnClickListener{
-
-            val intent = Intent(this, EditUser::class.java)
-            startActivity(intent)
-
-        }
-
-
 
     }
 
